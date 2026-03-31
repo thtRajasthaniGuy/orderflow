@@ -600,6 +600,189 @@
       }
 
       /* ============================================================
+   PRICING
+   ============================================================ */
+      .pricing {
+        padding: 0 20px 100px;
+      }
+      .pricing-header {
+        text-align: center;
+        margin-bottom: 56px;
+      }
+      .pricing-header .section-sub {
+        margin: 12px auto 0;
+      }
+
+      .pricing-card {
+        max-width: 520px;
+        margin: 0 auto;
+        background: var(--card);
+        border: 1px solid rgba(245, 183, 49, 0.3);
+        border-radius: var(--r2);
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 0 80px rgba(245, 183, 49, 0.07);
+      }
+      .pricing-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--gold3),
+          var(--gold),
+          var(--gold2)
+        );
+      }
+
+      .pricing-top {
+        padding: 36px 36px 28px;
+        text-align: center;
+        border-bottom: 1px solid var(--border);
+      }
+      .pricing-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 14px;
+        border-radius: 99px;
+        background: var(--gold-a);
+        border: 1px solid rgba(245, 183, 49, 0.25);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 20px;
+      }
+      .pricing-name {
+        font-family: "Instrument Serif", serif;
+        font-size: 22px;
+        color: var(--text);
+        margin-bottom: 16px;
+      }
+      .pricing-amount {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 4px;
+        line-height: 1;
+        margin-bottom: 6px;
+      }
+      .pricing-currency {
+        font-size: 26px;
+        font-weight: 700;
+        color: var(--gold);
+        padding-bottom: 6px;
+      }
+      .pricing-price {
+        font-family: "Instrument Serif", serif;
+        font-size: 72px;
+        color: var(--gold);
+      }
+      .pricing-period {
+        font-size: 14px;
+        color: var(--muted);
+        padding-bottom: 10px;
+      }
+      .pricing-desc {
+        font-size: 13px;
+        color: var(--soft);
+        margin-top: 8px;
+      }
+
+      .pricing-features {
+        padding: 28px 36px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .pricing-feat {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 14px;
+        color: var(--soft);
+      }
+      .pricing-check {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: rgba(34, 197, 94, 0.12);
+        border: 1px solid rgba(34, 197, 94, 0.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        color: var(--green);
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+
+      .pricing-bottom {
+        padding: 0 36px 36px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+      }
+      .pricing-btn {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 15px 28px;
+        border-radius: 99px;
+        background: linear-gradient(135deg, var(--gold), var(--gold2));
+        color: #0d0a00;
+        font-weight: 700;
+        font-size: 15px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.25s;
+        box-shadow: 0 0 40px rgba(245, 183, 49, 0.25);
+        font-family: "DM Sans", sans-serif;
+      }
+      .pricing-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 50px rgba(245, 183, 49, 0.4);
+      }
+      .pricing-note {
+        font-size: 12px;
+        color: var(--muted);
+        text-align: center;
+      }
+      .pricing-note span {
+        color: var(--green);
+        font-weight: 600;
+      }
+
+      @media (max-width: 600px) {
+        .pricing {
+          padding: 0 16px 72px;
+        }
+        .pricing-header {
+          margin-bottom: 36px;
+        }
+        .pricing-top {
+          padding: 28px 24px 22px;
+        }
+        .pricing-price {
+          font-size: 56px;
+        }
+        .pricing-features {
+          padding: 22px 24px;
+        }
+        .pricing-bottom {
+          padding: 0 24px 28px;
+        }
+      }
+
+      /* ============================================================
    CTA BANNER
    ============================================================ */
       .cta-banner {
@@ -1124,6 +1307,7 @@
       <div class="nav-logo">⚡ OrderFlow</div>
       <div class="nav-links">
         <a href="#features" class="nav-link">Features</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
         <a href="#faq" class="nav-link">FAQ</a>
         <a href="#contact" class="nav-cta wa-cta">Get Started →</a>
       </div>
@@ -1374,6 +1558,85 @@
     </section>
 
     <!-- FAQ -->
+    <!-- PRICING -->
+    <section class="pricing" id="pricing">
+      <div class="container">
+        <div class="pricing-header reveal">
+          <div class="section-label">Simple Pricing</div>
+          <h2 class="section-title">
+            One plan. <em style="color: var(--gold)">Everything included.</em>
+          </h2>
+          <p class="section-sub">
+            No tiers, no confusing upgrades. One flat price and you get it all.
+          </p>
+        </div>
+
+        <div class="pricing-card reveal">
+          <div class="pricing-top">
+            <div class="pricing-badge">✦ All Features Included</div>
+            <div class="pricing-name">OrderFlow Complete</div>
+            <div class="pricing-amount">
+              <span class="pricing-currency">₹</span>
+              <span class="pricing-price">499</span>
+              <span class="pricing-period">/month</span>
+            </div>
+            <div class="pricing-desc">
+              Everything you need to run your store professionally.
+            </div>
+          </div>
+
+          <div class="pricing-features">
+            <div class="pricing-feat">
+              <div class="pricing-check">✓</div>
+              Your own shareable order link
+            </div>
+            <div class="pricing-feat">
+              <div class="pricing-check">✓</div>
+              Unlimited orders — no caps
+            </div>
+            <div class="pricing-feat">
+              <div class="pricing-check">✓</div>
+              Order dashboard & status tracking
+            </div>
+            <div class="pricing-feat">
+              <div class="pricing-check">✓</div>
+              Customer review collection
+            </div>
+            <div class="pricing-feat">
+              <div class="pricing-check">✓</div>
+              Sales analytics & insights
+            </div>
+            <div class="pricing-feat">
+              <div class="pricing-check">✓</div>
+              WhatsApp integration
+            </div>
+            <div class="pricing-feat">
+              <div class="pricing-check">✓</div>
+              Custom store branding
+            </div>
+            <div class="pricing-feat">
+              <div class="pricing-check">✓</div>
+              100% mobile friendly
+            </div>
+            <div class="pricing-feat">
+              <div class="pricing-check">✓</div>
+              WhatsApp support included
+            </div>
+          </div>
+
+          <div class="pricing-bottom">
+            <button class="pricing-btn wa-cta">
+              <span>💬</span> Start Free Trial
+            </button>
+            <div class="pricing-note">
+              <span>7 days free</span> — no credit card needed
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
     <section class="faq" id="faq">
       <div class="container">
         <div class="faq-header reveal">
@@ -1452,7 +1715,7 @@
 
     <script>
       // ---- WhatsApp number — REPLACE THIS ----
-      var WA_NUMBER = "+919782641530";
+      var WA_NUMBER = "919876543210";
       var WA_MSG = encodeURIComponent(
         "Hi! I saw OrderFlow and I'm interested in setting it up for my store. Can you help?",
       );
