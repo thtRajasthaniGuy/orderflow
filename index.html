@@ -1687,7 +1687,9 @@
     <!-- FOOTER -->
     <footer class="container">
       <div class="footer-logo">⚡ OrderFlow</div>
-      <div class="footer-copy">© 2025 OrderFlow. Built for modern sellers.</div>
+     <div class="footer-copy">
+  © <span id="current-year"></span> OrderFlow. Built for modern sellers.
+</div>
     </footer>
 
     <script>
@@ -1752,6 +1754,8 @@
         },
         { passive: true },
       );
+      document.getElementById("current-year").textContent =
+  new Date().getFullYear();
     </script>
   </body>
 </html>
