@@ -6,7 +6,7 @@
     <title>OrderFlow — Order Management for Instagram Sellers</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -55,11 +55,14 @@
         scroll-behavior: smooth;
       }
       body {
-        font-family: "DM Sans", sans-serif;
+        font-family: "DM Sans", "Noto Sans Devanagari", sans-serif;
         background: var(--bg);
         color: var(--text);
         overflow-x: hidden;
         line-height: 1.6;
+      }
+      body[data-lang="hi"] {
+        font-family: "Noto Sans Devanagari", "DM Sans", sans-serif;
       }
       img {
         max-width: 100%;
@@ -232,6 +235,50 @@
       }
 
       /* ============================================================
+   LANGUAGE TOGGLE
+   ============================================================ */
+      .lang-toggle {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        background: var(--bg3);
+        border: 1px solid var(--border2);
+        border-radius: 99px;
+        padding: 3px;
+        margin-left: 6px;
+        flex-shrink: 0;
+      }
+      .lang-btn {
+        padding: 5px 11px;
+        border-radius: 99px;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--soft);
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s;
+        white-space: nowrap;
+        font-family: "DM Sans", "Noto Sans Devanagari", sans-serif;
+      }
+      .lang-btn.active {
+        background: var(--gold-a);
+        color: var(--gold);
+      }
+      .lang-btn:hover:not(.active) {
+        color: var(--text);
+      }
+      @media (max-width: 600px) {
+        .lang-toggle {
+          padding: 2px;
+        }
+        .lang-btn {
+          padding: 5px 8px;
+          font-size: 11px;
+        }
+      }
+
+      /* ============================================================
    HERO
    ============================================================ */
       .hero {
@@ -291,6 +338,9 @@
         color: var(--gold);
         display: inline-block;
       }
+      body[data-lang="hi"] .hero-title em {
+        font-style: normal;
+      }
       .hero-sub {
         font-size: clamp(14px, 2vw, 18px);
         color: var(--soft);
@@ -339,6 +389,7 @@
         cursor: pointer;
         transition: all 0.25s;
         background: transparent;
+        font-family: "DM Sans", "Noto Sans Devanagari", sans-serif;
       }
       .btn-ghost:hover {
         border-color: var(--gold);
@@ -530,6 +581,9 @@
         margin-bottom: 0;
         flex: 1;
       }
+      body[data-lang="hi"] .testi-text {
+        font-style: normal;
+      }
 
       /* ============================================================
    FAQ
@@ -558,7 +612,7 @@
         background: none;
         border: none;
         color: var(--text);
-        font-family: "DM Sans", sans-serif;
+        font-family: "DM Sans", "Noto Sans Devanagari", sans-serif;
         font-size: 15px;
         font-weight: 500;
         cursor: pointer;
@@ -567,6 +621,9 @@
       }
       .faq-q:hover {
         color: var(--gold);
+      }
+      .faq-q-text {
+        flex: 1;
       }
       .faq-icon {
         width: 24px;
@@ -600,7 +657,7 @@
       }
 
       /* ============================================================
-   PRICING
+   PRICING (features checklist)
    ============================================================ */
       .pricing {
         padding: 0 20px 100px;
@@ -745,7 +802,7 @@
         cursor: pointer;
         transition: all 0.25s;
         box-shadow: 0 0 40px rgba(245, 183, 49, 0.25);
-        font-family: "DM Sans", sans-serif;
+        font-family: "DM Sans", "Noto Sans Devanagari", sans-serif;
       }
       .pricing-btn:hover {
         transform: translateY(-2px);
@@ -779,6 +836,79 @@
         }
         .pricing-bottom {
           padding: 0 24px 28px;
+        }
+      }
+
+      /* ============================================================
+   PRICING CLARITY (new — no fixed price, sets expectations post-trial)
+   ============================================================ */
+      .pricing-clarity {
+        padding: 0 20px 100px;
+      }
+      .pricing-clarity-inner {
+        max-width: 680px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .pricing-clarity-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 32px auto 0;
+        max-width: 520px;
+        text-align: left;
+      }
+      .pricing-clarity-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 14px;
+        color: var(--soft);
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--r3);
+        padding: 14px 16px;
+      }
+      .pc-check {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--gold-a);
+        border: 1px solid rgba(245, 183, 49, 0.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        color: var(--gold);
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+      .pricing-clarity-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 28px;
+        flex-wrap: wrap;
+      }
+      .pricing-clarity-note {
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 18px;
+      }
+      @media (max-width: 600px) {
+        .pricing-clarity {
+          padding: 0 16px 72px;
+        }
+        .pricing-clarity-actions {
+          flex-direction: column;
+          width: 100%;
+        }
+        .pricing-clarity-actions .btn-primary,
+        .pricing-clarity-actions .btn-ghost {
+          width: 100%;
+          justify-content: center;
         }
       }
 
@@ -842,7 +972,7 @@
         cursor: pointer;
         transition: all 0.25s;
         box-shadow: 0 0 40px rgba(37, 211, 102, 0.3);
-        font-family: "DM Sans", sans-serif;
+        font-family: "DM Sans", "Noto Sans Devanagari", sans-serif;
       }
       .wa-btn:hover {
         transform: translateY(-2px);
@@ -1306,10 +1436,14 @@
     <nav>
       <div class="nav-logo">⚡ OrderFlow</div>
       <div class="nav-links">
-        <a href="#features" class="nav-link">Features</a>
-        <a href="#pricing" class="nav-link">Pricing</a>
-        <a href="#faq" class="nav-link">FAQ</a>
-        <a href="#contact" class="nav-cta wa-cta">Get Started →</a>
+        <a href="#features" class="nav-link" data-i18n="nav_features">Features</a>
+        <a href="#pricing" class="nav-link" data-i18n="nav_pricing">Pricing</a>
+        <a href="#faq" class="nav-link" data-i18n="nav_faq">FAQ</a>
+        <a href="#contact" class="nav-cta wa-cta" data-i18n="nav_cta">Get Started →</a>
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" class="lang-btn active" data-lang="en">EN</button>
+          <button type="button" class="lang-btn" data-lang="hi">हिन्दी</button>
+        </div>
       </div>
     </nav>
 
@@ -1317,37 +1451,37 @@
     <section class="hero">
       <div class="hero-badge">
         <div class="hero-badge-dot"></div>
-        For Instagram & WhatsApp businesses
+        <span data-i18n="hero_badge">For Instagram &amp; WhatsApp businesses</span>
       </div>
 
-      <h1 class="hero-title">
+      <h1 class="hero-title" data-i18n="hero_title">
         Run your entire store<br /><em>from one simple link</em>
       </h1>
 
-      <p class="hero-sub">
+      <p class="hero-sub" data-i18n="hero_sub">
         Stop managing orders in chats. Let customers place orders, track
         updates, and leave reviews — all in one place.
       </p>
 
       <div class="hero-stats">
         <div class="hero-stat">
-          <div class="hero-stat-val">100%</div>
-          <div class="hero-stat-lbl">Mobile Friendly</div>
+          <div class="hero-stat-val" data-i18n="hero_stat_val1">100%</div>
+          <div class="hero-stat-lbl" data-i18n="hero_stat_lbl1">Mobile Friendly</div>
         </div>
         <div class="stat-divider"></div>
         <div class="hero-stat">
-          <div class="hero-stat-val">0 Apps</div>
-          <div class="hero-stat-lbl">To Install</div>
+          <div class="hero-stat-val" data-i18n="hero_stat_val2">0 Apps</div>
+          <div class="hero-stat-lbl" data-i18n="hero_stat_lbl2">To Install</div>
         </div>
         <div class="stat-divider"></div>
         <div class="hero-stat">
-          <div class="hero-stat-val">All-in-1</div>
-          <div class="hero-stat-lbl">Order System</div>
+          <div class="hero-stat-val" data-i18n="hero_stat_val3">All-in-1</div>
+          <div class="hero-stat-lbl" data-i18n="hero_stat_lbl3">Order System</div>
         </div>
         <div class="stat-divider"></div>
         <div class="hero-stat">
-          <div class="hero-stat-val">Instant</div>
-          <div class="hero-stat-lbl">Order Tracking</div>
+          <div class="hero-stat-val" data-i18n="hero_stat_val4">Instant</div>
+          <div class="hero-stat-lbl" data-i18n="hero_stat_lbl4">Order Tracking</div>
         </div>
       </div>
     </section>
@@ -1356,12 +1490,12 @@
     <section class="features" id="features">
       <div class="container">
         <div class="features-header reveal">
-          <div class="section-label">What you get</div>
-          <h2 class="section-title">
+          <div class="section-label" data-i18n="features_label">What you get</div>
+          <h2 class="section-title" data-i18n="features_title">
             Everything you need to run your business.<br />
             <em style="color: var(--gold)">Nothing extra.</em>
           </h2>
-          <p class="section-sub">
+          <p class="section-sub" data-i18n="features_sub">
             Built for sellers who manage orders on Instagram and WhatsApp — and
             want to look more professional without extra work.
           </p>
@@ -1370,46 +1504,46 @@
         <div class="features-grid reveal">
           <div class="feat-card highlight">
             <div class="feat-icon">📋</div>
-            <div class="feat-title">Take Orders Automatically</div>
-            <div class="feat-desc">
+            <div class="feat-title" data-i18n="feat1_title">Take Orders Automatically</div>
+            <div class="feat-desc" data-i18n="feat1_desc">
               Customers place orders through a simple link — no more back &
               forth messages or missed orders.
             </div>
           </div>
           <div class="feat-card">
             <div class="feat-icon">⚡</div>
-            <div class="feat-title">All Orders in One Place</div>
-            <div class="feat-desc">
+            <div class="feat-title" data-i18n="feat2_title">All Orders in One Place</div>
+            <div class="feat-desc" data-i18n="feat2_desc">
               Track every order, update status, and stay organized without
               confusion.
             </div>
           </div>
           <div class="feat-card">
             <div class="feat-icon">📊</div>
-            <div class="feat-title">Know Your Sales</div>
-            <div class="feat-desc">
+            <div class="feat-title" data-i18n="feat3_title">Know Your Sales</div>
+            <div class="feat-desc" data-i18n="feat3_desc">
               See your revenue, best days, and top products at a glance.
             </div>
           </div>
           <div class="feat-card">
             <div class="feat-icon">⭐</div>
-            <div class="feat-title">Collect Customer Reviews</div>
-            <div class="feat-desc">
+            <div class="feat-title" data-i18n="feat4_title">Collect Customer Reviews</div>
+            <div class="feat-desc" data-i18n="feat4_desc">
               Get real reviews from customers and build trust for your brand.
             </div>
           </div>
           <div class="feat-card">
             <div class="feat-icon">💬</div>
-            <div class="feat-title">Works with WhatsApp</div>
-            <div class="feat-desc">
+            <div class="feat-title" data-i18n="feat5_title">Works with WhatsApp</div>
+            <div class="feat-desc" data-i18n="feat5_desc">
               Keep chatting with customers while everything stays organized in
               the background.
             </div>
           </div>
           <div class="feat-card">
             <div class="feat-icon">🎨</div>
-            <div class="feat-title">Your Brand, Your Store</div>
-            <div class="feat-desc">
+            <div class="feat-title" data-i18n="feat6_title">Your Brand, Your Store</div>
+            <div class="feat-desc" data-i18n="feat6_desc">
               Customize your store with your name, style, and identity.
             </div>
           </div>
@@ -1421,11 +1555,11 @@
     <section class="trial" id="trial">
       <div class="trial-inner">
         <div class="trial-header reveal">
-          <div class="section-label">Risk-Free</div>
-          <h2 class="section-title">
+          <div class="section-label" data-i18n="trial_label">Risk-Free</div>
+          <h2 class="section-title" data-i18n="trial_title">
             Try free for <em style="color: var(--gold)">7 days</em>
           </h2>
-          <p class="section-sub">
+          <p class="section-sub" data-i18n="trial_sub">
             No credit card needed. No commitment. Just set up your store and see
             the difference in one week.
           </p>
@@ -1439,55 +1573,55 @@
             </svg>
             <div class="trial-ring-inner">
               <div class="trial-ring-num">7</div>
-              <div class="trial-ring-label">Days Free</div>
+              <div class="trial-ring-label" data-i18n="trial_ring_label">Days Free</div>
             </div>
           </div>
 
           <div class="trial-perks">
             <div class="trial-perk">
               <div class="trial-perk-icon">🚀</div>
-              <div class="trial-perk-title">Instant Setup</div>
-              <div class="trial-perk-desc">
+              <div class="trial-perk-title" data-i18n="trial_perk1_title">Instant Setup</div>
+              <div class="trial-perk-desc" data-i18n="trial_perk1_desc">
                 Your store link is ready in minutes — share it right away and
                 start taking orders.
               </div>
             </div>
             <div class="trial-perk">
               <div class="trial-perk-icon">💳</div>
-              <div class="trial-perk-title">No Card Required</div>
-              <div class="trial-perk-desc">
+              <div class="trial-perk-title" data-i18n="trial_perk2_title">No Card Required</div>
+              <div class="trial-perk-desc" data-i18n="trial_perk2_desc">
                 Start your trial without entering any payment details. Zero
                 risk, zero stress.
               </div>
             </div>
             <div class="trial-perk">
               <div class="trial-perk-icon">🔓</div>
-              <div class="trial-perk-title">Full Access</div>
-              <div class="trial-perk-desc">
+              <div class="trial-perk-title" data-i18n="trial_perk3_title">Full Access</div>
+              <div class="trial-perk-desc" data-i18n="trial_perk3_desc">
                 All features unlocked from day one — not a limited demo, the
                 real thing.
               </div>
             </div>
             <div class="trial-perk">
               <div class="trial-perk-icon">❌</div>
-              <div class="trial-perk-title">Cancel Anytime</div>
-              <div class="trial-perk-desc">
+              <div class="trial-perk-title" data-i18n="trial_perk4_title">Cancel Anytime</div>
+              <div class="trial-perk-desc" data-i18n="trial_perk4_desc">
                 Don't love it? Cancel before 7 days and pay nothing. No
                 questions asked.
               </div>
             </div>
             <div class="trial-perk">
               <div class="trial-perk-icon">📞</div>
-              <div class="trial-perk-title">Setup Support</div>
-              <div class="trial-perk-desc">
+              <div class="trial-perk-title" data-i18n="trial_perk5_title">Setup Support</div>
+              <div class="trial-perk-desc" data-i18n="trial_perk5_desc">
                 We'll help you set up your store via WhatsApp so you're never
                 stuck alone.
               </div>
             </div>
             <div class="trial-perk">
               <div class="trial-perk-icon">📦</div>
-              <div class="trial-perk-title">Keep Your Data</div>
-              <div class="trial-perk-desc">
+              <div class="trial-perk-title" data-i18n="trial_perk6_title">Keep Your Data</div>
+              <div class="trial-perk-desc" data-i18n="trial_perk6_desc">
                 All your orders and customer info stay safe — even if you
                 upgrade later.
               </div>
@@ -1497,25 +1631,53 @@
 
         <div class="trial-trust reveal">
           <div class="trial-trust-item">
-            <span class="trial-trust-icon">✅</span> No credit card
+            <span class="trial-trust-icon">✅</span> <span data-i18n="trial_trust1">No credit card</span>
           </div>
           <div class="trial-trust-divider"></div>
           <div class="trial-trust-item">
-            <span class="trial-trust-icon">⏱️</span> 7 days free
+            <span class="trial-trust-icon">⏱️</span> <span data-i18n="trial_trust2">7 days free</span>
           </div>
           <div class="trial-trust-divider"></div>
           <div class="trial-trust-item">
-            <span class="trial-trust-icon">🔒</span> Cancel anytime
+            <span class="trial-trust-icon">🔒</span> <span data-i18n="trial_trust3">Cancel anytime</span>
           </div>
           <div class="trial-trust-divider"></div>
           <div class="trial-trust-item">
-            <span class="trial-trust-icon">💬</span> WhatsApp support
+            <span class="trial-trust-icon">💬</span> <span data-i18n="trial_trust4">WhatsApp support</span>
           </div>
           <div class="trial-trust-divider"></div>
           <div class="trial-trust-item">
-            <span class="trial-trust-icon">📱</span> Works on mobile
+            <span class="trial-trust-icon">📱</span> <span data-i18n="trial_trust5">Works on mobile</span>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- PRICING CLARITY (what happens after the trial) -->
+    <section class="pricing-clarity" id="pricing-clarity">
+      <div class="container pricing-clarity-inner reveal">
+        <div class="section-label" data-i18n="pc_label">Pricing</div>
+        <h2 class="section-title" data-i18n="pc_title">Simple plans for small sellers</h2>
+        <p class="section-sub" style="margin-left:auto;margin-right:auto;" data-i18n="pc_sub">
+          No confusing packages. Only pay for what fits your business.
+        </p>
+
+        <ul class="pricing-clarity-list">
+          <li><span class="pc-check">✓</span> <span data-i18n="pc_b1">Start free for 7 days</span></li>
+          <li><span class="pc-check">✓</span> <span data-i18n="pc_b2">No credit card needed</span></li>
+          <li><span class="pc-check">✓</span> <span data-i18n="pc_b3">Paid plans after trial depend on your business needs</span></li>
+          <li><span class="pc-check">✓</span> <span data-i18n="pc_b4">Pricing is based on order volume and support</span></li>
+          <li><span class="pc-check">✓</span> <span data-i18n="pc_b5">Chat on WhatsApp to get the right plan</span></li>
+        </ul>
+
+        <div class="pricing-clarity-actions">
+          <button class="btn-primary wa-cta" data-i18n="pc_cta_primary">Chat on WhatsApp for Pricing</button>
+          <a href="#trial" class="btn-ghost" data-i18n="pc_cta_secondary">Start Free Trial</a>
+        </div>
+
+        <p class="pricing-clarity-note" data-i18n="pc_note">
+          No hidden fees. No lock-in. Just a plan that fits your store.
+        </p>
       </div>
     </section>
 
@@ -1523,8 +1685,8 @@
     <section class="testi" id="testimonials">
       <div class="container">
         <div class="testi-header reveal">
-          <div class="section-label">Sellers love it</div>
-          <h2 class="section-title">
+          <div class="section-label" data-i18n="testi_label">Sellers love it</div>
+          <h2 class="section-title" data-i18n="testi_title">
             Real results from<br /><em style="color: var(--gold)"
               >real sellers</em
             >
@@ -1534,21 +1696,21 @@
         <div class="testi-grid reveal">
           <div class="testi-card">
             <div class="testi-stars">★★★★★</div>
-            <div class="testi-text">
+            <div class="testi-text" data-i18n="testi1">
               "I finally feel like I'm running a real business, not just
               replying to messages all day."
             </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">★★★★★</div>
-            <div class="testi-text">
+            <div class="testi-text" data-i18n="testi2">
               "My customers now place orders properly, and I don't miss anything
               anymore."
             </div>
           </div>
           <div class="testi-card">
             <div class="testi-stars">★★★★★</div>
-            <div class="testi-text">
+            <div class="testi-text" data-i18n="testi3">
               "It made my Instagram store look much more professional
               instantly."
             </div>
@@ -1557,56 +1719,55 @@
       </div>
     </section>
 
-    <!-- FAQ -->
-    <!-- PRICING -->
+    <!-- PRICING (features checklist) -->
     <section class="pricing" id="pricing">
       <div class="container">
         <div class="pricing-card reveal">
           <div class="pricing-features">
             <div class="pricing-feat">
               <div class="pricing-check">✓</div>
-              Your own shareable order link
+              <span data-i18n="pf1">Your own shareable order link</span>
             </div>
             <div class="pricing-feat">
               <div class="pricing-check">✓</div>
-              Unlimited orders — no caps
+              <span data-i18n="pf2">Unlimited orders — no caps</span>
             </div>
             <div class="pricing-feat">
               <div class="pricing-check">✓</div>
-              Order dashboard & status tracking
+              <span data-i18n="pf3">Order dashboard &amp; status tracking</span>
             </div>
             <div class="pricing-feat">
               <div class="pricing-check">✓</div>
-              Customer review collection
+              <span data-i18n="pf4">Customer review collection</span>
             </div>
             <div class="pricing-feat">
               <div class="pricing-check">✓</div>
-              Sales analytics & insights
+              <span data-i18n="pf5">Sales analytics &amp; insights</span>
             </div>
             <div class="pricing-feat">
               <div class="pricing-check">✓</div>
-              WhatsApp integration
+              <span data-i18n="pf6">WhatsApp integration</span>
             </div>
             <div class="pricing-feat">
               <div class="pricing-check">✓</div>
-              Custom store branding
+              <span data-i18n="pf7">Custom store branding</span>
             </div>
             <div class="pricing-feat">
               <div class="pricing-check">✓</div>
-              100% mobile friendly
+              <span data-i18n="pf8">100% mobile friendly</span>
             </div>
             <div class="pricing-feat">
               <div class="pricing-check">✓</div>
-              WhatsApp support included
+              <span data-i18n="pf9">WhatsApp support included</span>
             </div>
           </div>
 
           <div class="pricing-bottom">
             <button class="pricing-btn wa-cta">
-              <span>💬</span> Start Free Trial
+              <span>💬</span> <span data-i18n="pricing_cta_btn">Start Free Trial</span>
             </button>
             <div class="pricing-note">
-              <span>7 days free</span> — no credit card needed
+              <span data-i18n="pricing_note_span">7 days free</span> <span data-i18n="pricing_note_rest">— no credit card needed</span>
             </div>
           </div>
         </div>
@@ -1617,49 +1778,49 @@
     <section class="faq" id="faq">
       <div class="container">
         <div class="faq-header reveal">
-          <div class="section-label">Questions</div>
-          <h2 class="section-title">Frequently asked</h2>
+          <div class="section-label" data-i18n="faq_label">Questions</div>
+          <h2 class="section-title" data-i18n="faq_title">Frequently asked</h2>
         </div>
 
         <div class="faq-wrap reveal">
           <div class="faq-item">
             <button class="faq-q">
-              Do I need any technical knowledge?
+              <span class="faq-q-text" data-i18n="faq_q1">Do I need any technical knowledge?</span>
               <div class="faq-icon">+</div>
             </button>
-            <div class="faq-a">No. Everything is simple and ready to use.</div>
+            <div class="faq-a" data-i18n="faq_a1">No. Everything is simple and ready to use.</div>
           </div>
           <div class="faq-item">
             <button class="faq-q">
-              Can I use this for my business?
+              <span class="faq-q-text" data-i18n="faq_q2">Can I use this for my business?</span>
               <div class="faq-icon">+</div>
             </button>
-            <div class="faq-a">
+            <div class="faq-a" data-i18n="faq_a2">
               Yes — whether you sell clothes, handmade items, or anything else.
             </div>
           </div>
           <div class="faq-item">
             <button class="faq-q">
-              Do customers need to install anything?
+              <span class="faq-q-text" data-i18n="faq_q3">Do customers need to install anything?</span>
               <div class="faq-icon">+</div>
             </button>
-            <div class="faq-a">
+            <div class="faq-a" data-i18n="faq_a3">
               No. They just open your link and place an order.
             </div>
           </div>
           <div class="faq-item">
             <button class="faq-q">
-              Can I manage orders from my phone?
+              <span class="faq-q-text" data-i18n="faq_q4">Can I manage orders from my phone?</span>
               <div class="faq-icon">+</div>
             </button>
-            <div class="faq-a">Yes. Everything works perfectly on mobile.</div>
+            <div class="faq-a" data-i18n="faq_a4">Yes. Everything works perfectly on mobile.</div>
           </div>
           <div class="faq-item">
             <button class="faq-q">
-              Are there any hidden charges?
+              <span class="faq-q-text" data-i18n="faq_q5">Are there any hidden charges?</span>
               <div class="faq-icon">+</div>
             </button>
-            <div class="faq-a">No. What you see is what you pay.</div>
+            <div class="faq-a" data-i18n="faq_a5">No hidden charges. Your free trial is completely free. After that, your plan depends on your order volume and support needs — we'll always confirm pricing with you on WhatsApp before you pay anything.</div>
           </div>
         </div>
       </div>
@@ -1669,16 +1830,16 @@
     <section class="cta-banner" id="contact">
       <div class="container">
         <div class="cta-inner reveal">
-          <div class="section-label">Ready to start?</div>
-          <h2 class="cta-title">
+          <div class="section-label" data-i18n="cta_label">Ready to start?</div>
+          <h2 class="cta-title" data-i18n="cta_title">
             Start taking orders like a<br />
             <em style="color: var(--gold)">real store</em>
           </h2>
-          <p class="cta-sub">
+          <p class="cta-sub" data-i18n="cta_sub">
             Get your store link today and start managing orders the easy way.
           </p>
           <button class="wa-btn wa-cta">
-            <span class="wa-icon">💬</span> Get My Store Link
+            <span class="wa-icon">💬</span> <span data-i18n="wa_btn">Get My Store Link</span>
           </button>
         </div>
       </div>
@@ -1688,7 +1849,7 @@
     <footer class="container">
       <div class="footer-logo">⚡ OrderFlow</div>
      <div class="footer-copy">
-  © <span id="current-year"></span> OrderFlow. Built for modern sellers.
+  © <span id="current-year"></span> OrderFlow. <span data-i18n="footer_copy_rest">Built for modern sellers.</span>
 </div>
     </footer>
 
@@ -1755,7 +1916,254 @@
         { passive: true },
       );
       document.getElementById("current-year").textContent =
-  new Date().getFullYear();
+        new Date().getFullYear();
+
+      // ============================================================
+      // LANGUAGE TOGGLE (EN / HI) — vanilla JS, data-i18n driven
+      // ============================================================
+      var translations = {
+        en: {
+          nav_features: "Features",
+          nav_pricing: "Pricing",
+          nav_faq: "FAQ",
+          nav_cta: "Get Started →",
+
+          hero_badge: "For Instagram &amp; WhatsApp businesses",
+          hero_title: 'Run your entire store<br/><em>from one simple link</em>',
+          hero_sub: "Stop managing orders in chats. Let customers place orders, track updates, and leave reviews — all in one place.",
+          hero_stat_val1: "100%",
+          hero_stat_lbl1: "Mobile Friendly",
+          hero_stat_val2: "0 Apps",
+          hero_stat_lbl2: "To Install",
+          hero_stat_val3: "All-in-1",
+          hero_stat_lbl3: "Order System",
+          hero_stat_val4: "Instant",
+          hero_stat_lbl4: "Order Tracking",
+
+          features_label: "What you get",
+          features_title: 'Everything you need to run your business.<br/><em style="color: var(--gold)">Nothing extra.</em>',
+          features_sub: "Built for sellers who manage orders on Instagram and WhatsApp — and want to look more professional without extra work.",
+          feat1_title: "Take Orders Automatically",
+          feat1_desc: "Customers place orders through a simple link — no more back & forth messages or missed orders.",
+          feat2_title: "All Orders in One Place",
+          feat2_desc: "Track every order, update status, and stay organized without confusion.",
+          feat3_title: "Know Your Sales",
+          feat3_desc: "See your revenue, best days, and top products at a glance.",
+          feat4_title: "Collect Customer Reviews",
+          feat4_desc: "Get real reviews from customers and build trust for your brand.",
+          feat5_title: "Works with WhatsApp",
+          feat5_desc: "Keep chatting with customers while everything stays organized in the background.",
+          feat6_title: "Your Brand, Your Store",
+          feat6_desc: "Customize your store with your name, style, and identity.",
+
+          trial_label: "Risk-Free",
+          trial_title: 'Try free for <em style="color: var(--gold)">7 days</em>',
+          trial_sub: "No credit card needed. No commitment. Just set up your store and see the difference in one week.",
+          trial_ring_label: "Days Free",
+          trial_perk1_title: "Instant Setup",
+          trial_perk1_desc: "Your store link is ready in minutes — share it right away and start taking orders.",
+          trial_perk2_title: "No Card Required",
+          trial_perk2_desc: "Start your trial without entering any payment details. Zero risk, zero stress.",
+          trial_perk3_title: "Full Access",
+          trial_perk3_desc: "All features unlocked from day one — not a limited demo, the real thing.",
+          trial_perk4_title: "Cancel Anytime",
+          trial_perk4_desc: "Don't love it? Cancel before 7 days and pay nothing. No questions asked.",
+          trial_perk5_title: "Setup Support",
+          trial_perk5_desc: "We'll help you set up your store via WhatsApp so you're never stuck alone.",
+          trial_perk6_title: "Keep Your Data",
+          trial_perk6_desc: "All your orders and customer info stay safe — even if you upgrade later.",
+          trial_trust1: "No credit card",
+          trial_trust2: "7 days free",
+          trial_trust3: "Cancel anytime",
+          trial_trust4: "WhatsApp support",
+          trial_trust5: "Works on mobile",
+
+          pc_label: "Pricing",
+          pc_title: "Simple plans for small sellers",
+          pc_sub: "No confusing packages. Only pay for what fits your business.",
+          pc_b1: "Start free for 7 days",
+          pc_b2: "No credit card needed",
+          pc_b3: "Paid plans after trial depend on your business needs",
+          pc_b4: "Pricing is based on order volume and support",
+          pc_b5: "Chat on WhatsApp to get the right plan",
+          pc_cta_primary: "Chat on WhatsApp for Pricing",
+          pc_cta_secondary: "Start Free Trial",
+          pc_note: "No hidden fees. No lock-in. Just a plan that fits your store.",
+
+          testi_label: "Sellers love it",
+          testi_title: 'Real results from<br/><em style="color: var(--gold)">real sellers</em>',
+          testi1: '"I finally feel like I\'m running a real business, not just replying to messages all day."',
+          testi2: '"My customers now place orders properly, and I don\'t miss anything anymore."',
+          testi3: '"It made my Instagram store look much more professional instantly."',
+
+          pf1: "Your own shareable order link",
+          pf2: "Unlimited orders — no caps",
+          pf3: "Order dashboard &amp; status tracking",
+          pf4: "Customer review collection",
+          pf5: "Sales analytics &amp; insights",
+          pf6: "WhatsApp integration",
+          pf7: "Custom store branding",
+          pf8: "100% mobile friendly",
+          pf9: "WhatsApp support included",
+          pricing_cta_btn: "Start Free Trial",
+          pricing_note_span: "7 days free",
+          pricing_note_rest: "— no credit card needed",
+
+          faq_label: "Questions",
+          faq_title: "Frequently asked",
+          faq_q1: "Do I need any technical knowledge?",
+          faq_a1: "No. Everything is simple and ready to use.",
+          faq_q2: "Can I use this for my business?",
+          faq_a2: "Yes — whether you sell clothes, handmade items, or anything else.",
+          faq_q3: "Do customers need to install anything?",
+          faq_a3: "No. They just open your link and place an order.",
+          faq_q4: "Can I manage orders from my phone?",
+          faq_a4: "Yes. Everything works perfectly on mobile.",
+          faq_q5: "Are there any hidden charges?",
+          faq_a5: "No hidden charges. Your free trial is completely free. After that, your plan depends on your order volume and support needs — we'll always confirm pricing with you on WhatsApp before you pay anything.",
+
+          cta_label: "Ready to start?",
+          cta_title: 'Start taking orders like a<br/><em style="color: var(--gold)">real store</em>',
+          cta_sub: "Get your store link today and start managing orders the easy way.",
+          wa_btn: "Get My Store Link",
+
+          footer_copy_rest: "Built for modern sellers.",
+        },
+        hi: {
+          nav_features: "फ़ीचर्स",
+          nav_pricing: "प्राइसिंग",
+          nav_faq: "सवाल-जवाब",
+          nav_cta: "शुरू करें →",
+
+          hero_badge: "इंस्टाग्राम और व्हाट्सएप बिज़नेस के लिए",
+          hero_title: 'अपना पूरा स्टोर चलाएं<br/><em>बस एक लिंक से</em>',
+          hero_sub: "चैट में ऑर्डर मैनेज करना बंद करें। ग्राहकों को ऑर्डर देने, ट्रैक करने और रिव्यू छोड़ने दें — सब एक ही जगह पर।",
+          hero_stat_val1: "100%",
+          hero_stat_lbl1: "मोबाइल फ्रेंडली",
+          hero_stat_val2: "0 ऐप",
+          hero_stat_lbl2: "इंस्टॉल करने की ज़रूरत नहीं",
+          hero_stat_val3: "सब एक साथ",
+          hero_stat_lbl3: "ऑर्डर सिस्टम",
+          hero_stat_val4: "तुरंत",
+          hero_stat_lbl4: "ऑर्डर ट्रैकिंग",
+
+          features_label: "आपको क्या मिलेगा",
+          features_title: 'आपके बिज़नेस के लिए ज़रूरी हर चीज़।<br/><em style="color: var(--gold)">बस इतना ही, कुछ एक्स्ट्रा नहीं।</em>',
+          features_sub: "उन सेलर्स के लिए बनाया गया है जो इंस्टाग्राम और व्हाट्सएप पर ऑर्डर मैनेज करते हैं — और बिना एक्स्ट्रा मेहनत के प्रोफेशनल दिखना चाहते हैं।",
+          feat1_title: "अपने आप ऑर्डर लें",
+          feat1_desc: "ग्राहक एक सिंपल लिंक से ऑर्डर करते हैं — बार-बार मैसेज या छूटे हुए ऑर्डर की टेंशन नहीं।",
+          feat2_title: "सारे ऑर्डर एक जगह",
+          feat2_desc: "हर ऑर्डर ट्रैक करें, स्टेटस अपडेट करें, और बिना कन्फ्यूज़न के व्यवस्थित रहें।",
+          feat3_title: "अपनी सेल्स जानें",
+          feat3_desc: "एक नज़र में अपनी कमाई, बेस्ट दिन और टॉप प्रोडक्ट देखें।",
+          feat4_title: "ग्राहकों से रिव्यू लें",
+          feat4_desc: "असली ग्राहकों से रिव्यू पाएं और अपने ब्रांड पर भरोसा बनाएं।",
+          feat5_title: "व्हाट्सएप के साथ काम करता है",
+          feat5_desc: "ग्राहकों से चैट करते रहें, बाकी सब पीछे अपने आप व्यवस्थित होता रहेगा।",
+          feat6_title: "आपका ब्रांड, आपका स्टोर",
+          feat6_desc: "अपने स्टोर को अपने नाम, स्टाइल और पहचान के हिसाब से कस्टमाइज़ करें।",
+
+          trial_label: "बिना किसी जोखिम के",
+          trial_title: '<em style="color: var(--gold)">7 दिन</em> मुफ्त आज़माएं',
+          trial_sub: "कोई क्रेडिट कार्ड नहीं चाहिए। कोई कमिटमेंट नहीं। बस अपना स्टोर सेट करें और एक हफ्ते में फर्क देखें।",
+          trial_ring_label: "दिन मुफ्त",
+          trial_perk1_title: "तुरंत सेटअप",
+          trial_perk1_desc: "आपका स्टोर लिंक मिनटों में तैयार हो जाता है — तुरंत शेयर करें और ऑर्डर लेना शुरू करें।",
+          trial_perk2_title: "कार्ड की ज़रूरत नहीं",
+          trial_perk2_desc: "बिना पेमेंट डिटेल डाले अपना ट्रायल शुरू करें। कोई जोखिम नहीं, कोई टेंशन नहीं।",
+          trial_perk3_title: "पूरी सुविधा",
+          trial_perk3_desc: "पहले दिन से सारे फीचर्स अनलॉक — कोई लिमिटेड डेमो नहीं, पूरा प्रोडक्ट।",
+          trial_perk4_title: "कभी भी कैंसल करें",
+          trial_perk4_desc: "पसंद नहीं आया? 7 दिन के अंदर कैंसल करें और कुछ भी पे न करें। कोई सवाल नहीं।",
+          trial_perk5_title: "सेटअप में मदद",
+          trial_perk5_desc: "हम व्हाट्सएप पर आपका स्टोर सेट करने में मदद करेंगे, ताकि आप कभी अटकें नहीं।",
+          trial_perk6_title: "अपना डेटा सुरक्षित रखें",
+          trial_perk6_desc: "आपके सारे ऑर्डर और ग्राहकों की जानकारी सुरक्षित रहती है — अपग्रेड करने पर भी।",
+          trial_trust1: "कोई क्रेडिट कार्ड नहीं",
+          trial_trust2: "7 दिन मुफ्त",
+          trial_trust3: "कभी भी कैंसल करें",
+          trial_trust4: "व्हाट्सएप सपोर्ट",
+          trial_trust5: "मोबाइल पर काम करता है",
+
+          pc_label: "प्राइसिंग",
+          pc_title: "छोटे सेलर्स के लिए सिंपल प्लान",
+          pc_sub: "कोई कन्फ्यूज़िंग पैकेज नहीं। सिर्फ वही पे करें जो आपके बिज़नेस के लिए सही हो।",
+          pc_b1: "7 दिन मुफ्त शुरू करें",
+          pc_b2: "कोई क्रेडिट कार्ड नहीं चाहिए",
+          pc_b3: "ट्रायल के बाद, पेड प्लान आपके बिज़नेस की ज़रूरतों पर निर्भर करता है",
+          pc_b4: "प्राइसिंग ऑर्डर वॉल्यूम और सपोर्ट पर आधारित है",
+          pc_b5: "सही प्लान जानने के लिए व्हाट्सएप पर चैट करें",
+          pc_cta_primary: "व्हाट्सएप पर प्राइसिंग जानें",
+          pc_cta_secondary: "फ्री ट्रायल शुरू करें",
+          pc_note: "कोई छिपा हुआ चार्ज नहीं। कोई लॉक-इन नहीं। बस वो प्लान जो आपके स्टोर पर फिट बैठे।",
+
+          testi_label: "सेलर्स को पसंद है",
+          testi_title: 'असली सेलर्स के<br/><em style="color: var(--gold)">असली नतीजे</em>',
+          testi1: '"अब लगता है कि मैं सच में एक बिज़नेस चला रहा हूं, बस दिनभर मैसेज का जवाब नहीं दे रहा।"',
+          testi2: '"अब मेरे ग्राहक ठीक से ऑर्डर करते हैं, और मुझसे कुछ छूटता नहीं।"',
+          testi3: '"इसने मेरे इंस्टाग्राम स्टोर को तुरंत ज़्यादा प्रोफेशनल बना दिया।"',
+
+          pf1: "आपका अपना शेयर करने योग्य ऑर्डर लिंक",
+          pf2: "अनलिमिटेड ऑर्डर — कोई लिमिट नहीं",
+          pf3: "ऑर्डर डैशबोर्ड और स्टेटस ट्रैकिंग",
+          pf4: "ग्राहक रिव्यू कलेक्शन",
+          pf5: "सेल्स एनालिटिक्स और इनसाइट्स",
+          pf6: "व्हाट्सएप इंटीग्रेशन",
+          pf7: "कस्टम स्टोर ब्रांडिंग",
+          pf8: "100% मोबाइल फ्रेंडली",
+          pf9: "व्हाट्सएप सपोर्ट शामिल",
+          pricing_cta_btn: "फ्री ट्रायल शुरू करें",
+          pricing_note_span: "7 दिन मुफ्त",
+          pricing_note_rest: "— कोई क्रेडिट कार्ड नहीं चाहिए",
+
+          faq_label: "सवाल",
+          faq_title: "अक्सर पूछे जाने वाले सवाल",
+          faq_q1: "क्या मुझे कोई तकनीकी जानकारी चाहिए?",
+          faq_a1: "नहीं। सब कुछ आसान है और इस्तेमाल के लिए तैयार है।",
+          faq_q2: "क्या मैं इसे अपने बिज़नेस के लिए इस्तेमाल कर सकता हूं?",
+          faq_a2: "हां — चाहे आप कपड़े बेचें, हाथ से बनी चीज़ें, या कुछ भी और।",
+          faq_q3: "क्या ग्राहकों को कुछ इंस्टॉल करना पड़ेगा?",
+          faq_a3: "नहीं। वो बस आपका लिंक खोलते हैं और ऑर्डर कर देते हैं।",
+          faq_q4: "क्या मैं फोन से ऑर्डर मैनेज कर सकता हूं?",
+          faq_a4: "हां। सब कुछ मोबाइल पर बढ़िया काम करता है।",
+          faq_q5: "क्या कोई छिपा हुआ चार्ज है?",
+          faq_a5: "कोई छिपा हुआ चार्ज नहीं। आपका फ्री ट्रायल पूरी तरह मुफ्त है। उसके बाद, आपका प्लान आपके ऑर्डर वॉल्यूम और सपोर्ट की ज़रूरत पर निर्भर करता है — पे करने से पहले हम हमेशा व्हाट्सएप पर आपसे प्राइसिंग कन्फर्म करेंगे।",
+
+          cta_label: "शुरू करने के लिए तैयार हैं?",
+          cta_title: 'एक असली स्टोर की तरह<br/><em style="color: var(--gold)">ऑर्डर लेना शुरू करें</em>',
+          cta_sub: "आज ही अपना स्टोर लिंक पाएं और आसान तरीके से ऑर्डर मैनेज करना शुरू करें।",
+          wa_btn: "मेरा स्टोर लिंक पाएं",
+
+          footer_copy_rest: "आधुनिक सेलर्स के लिए बनाया गया।",
+        },
+      };
+
+      function applyLanguage(lang) {
+        document.querySelectorAll("[data-i18n]").forEach(function (el) {
+          var key = el.getAttribute("data-i18n");
+          var value = translations[lang] && translations[lang][key];
+          if (value !== undefined) {
+            el.innerHTML = value;
+          }
+        });
+        document.body.setAttribute("data-lang", lang);
+        document.documentElement.setAttribute("lang", lang === "hi" ? "hi" : "en");
+        document.querySelectorAll(".lang-btn").forEach(function (btn) {
+          btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+        });
+        try {
+          window.localStorage && window.localStorage.setItem("of_lang", lang);
+        } catch (e) {}
+      }
+
+      document.querySelectorAll(".lang-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          applyLanguage(btn.getAttribute("data-lang"));
+        });
+      });
+
+      // Default to English on load.
+      applyLanguage("en");
     </script>
   </body>
 </html>
